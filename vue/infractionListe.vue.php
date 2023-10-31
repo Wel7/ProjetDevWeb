@@ -20,12 +20,13 @@
                     <th>Montant</th>
                     <th></th>
                 </tr>
-                <?php 
-                    printTabInfra($numPermis)
-                ?>
             </thead>
             <tbody>
+            <?php 
+                    printTabInfra($numPermis)
+                ?>
             </tbody>
         </table>
     </body>
+    <script type="module" src="infraction_liste.js"></script>
 </html>

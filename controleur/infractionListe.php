@@ -34,10 +34,37 @@
                 <td></td>
                 <td>".$infractions[$i]->getDateInf()."</td>
                 <td>".$infractions[$i]->getNumImmat()."</td>
-                <td>".$del->getTotalTarif($infractions[$i]->getIdInf())."</td>
-                
+                <td>".$del->getTotalTarif($infractions[$i]->getIdInf())."€ </td>
+                <td><input type='button' class='buttonDeroulant' id='inf".$infractions[$i]->getIdInf()."'/>
             </tr>
             ";
+            $delits= $del->getByIdInfra($infractions[$i]->getIdInf());
+            echo "
+                <tr class='tab_delits inf".$infractions[$i]->getIdInf()."'>
+                    <th></th>
+                    <th>Numéro</th>
+                    <th></th>
+                    <th>Nature</th>
+                    <th>Tarif</th>
+                    <th></th>
+                    <th></th>
+                </tr>";
+                for($j=0;$j<count($delits);$j++)
+                {
+                    echo "
+                <tr class='tab_delits inf".$infractions[$i]->getIdInf()."'>
+                    <td></td>
+                    <td>".($i+1).'.'.($j+1)."</td>
+                    <td></td>
+                    <td>".$delits[$j]->getNature()."</td>
+                    <td>".$delits[$j]->getTarif()."€ </td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                        ";
+                }
+                echo "
+            </div>";
         }
     }
 
