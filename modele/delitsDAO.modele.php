@@ -7,10 +7,12 @@ class DelitsDAO{
     private $bd;
     private $select;
 
+
     //Déclaration du construcc
     function __construct(){
         $this->bd = new Connexion();
         $this->select = 'SELECT * FROM `delit` ';
+
     }
 
     //Fonctionnant transformant un tableau en tableau associatif
@@ -33,7 +35,9 @@ class DelitsDAO{
     }
 
     // Retourne le délit d'un id
-    function getById(string $id) : Delit{
+
+    function getById(int $id) : Delit{
+
         $unDelit = new Delit;
         $lesDelit = $this->loadQuery($this->bd->execSQLselect($this->select ." WHERE
         id_delit=:id", [':id'=>$id]));
@@ -44,29 +48,35 @@ class DelitsDAO{
     }
 
     // Retourne les délits d'une infraction à l'aide de son id
-    function getByIdInfra(string $id_infra) : array{
+
+    function getByIdInfra(int $id_infra) : array{
+
         return $this->loadQuery($this->bd->execSQLselect("SELECT c.id_delit,nature, tarif FROM comprend c, delit d 
         WHERE c.id_delit=d.id_delit AND id_inf =".$id_infra));
     }
 
     // Retourne un délit et infraction en fonction de leurs id
-    function getByIdInfraDelit(string $id_infra, string $id_delit) : array{
+
+    function getByIdInfraDelit(int $id_infra, int $id_delit) : array{
+
         return $this->loadQuery($this->bd->execSQLselect("SELECT c.id_delit, nature,tarif 
         FROM comprend c, delit d 
         WHERE c.id_delit=".$id_delit.
         "AND id_inf =".$id_infra ));
     }
 
-    // Calcule le taotal de tarif pour une infraction
-    function getTotalTarif(string $id_infra) : string {
-        return $this->loadQuery($this->bd->execSQLselect("SELECT SUM(tarif) 
+
+    // Calcule le total de tarif pour une infraction
+    function getTotalTarif(int $id_infra) : float {
+        return (($this->bd->execSQLselect("SELECT SUM(tarif) as 'tarif'
         FROM comprend c, delit d 
         WHERE c.id_delit=d.id_delit
-        AND id_inf =".$id_infra ))[0];
+        AND id_inf =".$id_infra))[0]['tarif']);
     }
 
     // Insere dans la Bdd un tableau de délit pour une infraction
-    function insert(string $id_inf, array $delits): void {
+    function insert(int $id_inf, array $delits): void {
+
         $sql = "INSERT INTO comprend(id_inf,id_delit) VALUES ";
         $sep = ",";
         $var = "";
@@ -78,7 +88,7 @@ class DelitsDAO{
     }
 
     // Supprime les délits d'une infraction
-    function delete(string $id_infr) : void {
+    function delete(int $id_infr) : void {
         $this->bd->execSQL("DELETE FROM comprend 
             WHERE id_infr = :id_infr", [':id_infr'=>$id_infr ] );
     } 

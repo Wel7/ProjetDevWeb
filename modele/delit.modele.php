@@ -4,7 +4,11 @@ class Delit {
     private string $nature;
     private float $tarif;
 
-    public function __construct($id_delit=0, $nature='', $tarif=0) {
+
+    
+
+    public function __construct($id_delit=0, $nature='', $tarif=0.) {
+
         $this->id_delit = $id_delit;
         $this->nature = $nature;
         $this->tarif = $tarif;

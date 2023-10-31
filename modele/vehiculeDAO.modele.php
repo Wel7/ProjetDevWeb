@@ -1,3 +1,4 @@
+
 <?php
 require_once('connexion.php');
 require_once('vehicule.modele.php');
@@ -48,6 +49,9 @@ class VehiculeDAO
         );
     }
 
+    /**
+     * Charge les informations de tous les véhicules de la base de données.
+     */
 
     private function loadQuery(array $result): array
     {
@@ -98,12 +102,14 @@ class VehiculeDAO
     }
 
     /**
-     * Retrouve un véhicule à permis du numéro de permis de son conducteur.
+     * Retrouve les véhicule à permis du numéro de permis de son conducteur.
      */
-    function getByNumPermis(string $num_permis): Vehicule
+
+    function getByNumPermis(string $num_permis): array
     {
         $req = $this->select . " WHERE num_permis = :num_permis";
-        return ($this->loadQuery($this->bd->execSQLselect($req, [':num_permis' => $num_permis])))[0];
+        return ($this->loadQuery($this->bd->execSQLselect($req, [':num_permis' => $num_permis])));
+
     }
 }
 ?>

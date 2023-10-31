@@ -6,7 +6,7 @@ class Connexion {
 	function __construct() {
 		$db_config['SGBD']		= 'mysql';
 		$db_config['HOST']		= 'localhost';
-		$db_config['DB_NAME']	= 'tpdevweb';
+		$db_config['DB_NAME']	= 'infraction';
 		$db_config['USER']		= 'root';
 		$db_config['PASSWORD']	= '';
 		try
