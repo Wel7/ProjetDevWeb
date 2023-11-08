@@ -20,7 +20,7 @@
 .salle_commentaire {
     text-align : left; 
     font-size : 0.9em;
-    white-space : pre; /* sauts de ligne \r\n conservés */
+    white-space : pre;
 }
 .delit_rubrique{
     display : grid;

@@ -17,6 +17,9 @@ body {
 }
 
 .divtitre {
+  display: flex;
+  flex-direction: row;
+  gap: 73%;
   background-color  : #5b5b5b;
   color 			: #ffffff; 
   height			: 30px;
@@ -73,4 +76,32 @@ input[type=button].rotated{
 
 table .tab_delits:nth-child(2n){
   background-color: rgb(65, 64, 64);
+}
+
+#deconnexion, #deconnexion :visited{
+  cursor: pointer;
+  color : white;
+  border : solid 1px red;
+  border-radius: 7px;
+  background-color: rgb(250, 59, 59);
+  width: 110px;
+  height:min-content;
+  text-align: center;
+  box-shadow:
+  1px 1px 1px black,
+  inset 2px 3px 5px rgba(0, 0, 0, 0.3),
+  inset -2px -3px 5px rgba(255, 255, 255, 0.5);
+  transition: transform 1s ease-in-out;
+}
+
+#deconnexion:hover{
+  transform: rotate(-3600000deg);
+  box-shadow:
+    inset 2px 2px 1px black,
+    inset 2px 3px 5px rgba(0, 0, 0, 0.3),
+    inset -2px -3px 5px rgba(255, 255, 255, 0.5);
+}
+
+#deconnexion > a{
+  text-decoration: none;
 }

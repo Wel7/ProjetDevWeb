@@ -6,9 +6,16 @@
         <link type="text/css" rel="stylesheet" href="../vue/css/infraction.css">
     </head>
     <body>
+        
         <div id="div_infra_liste_titre" class="divtitre"> Liste des infractions
             <?php printIdentite($conducteur);?>
+            <div id="deconnexion" class="rotated">
+                <a href="../vue/login.view.php">Deconnexion</a>
+            </div>
         </div>
+
+        
+
         <table id="table_infraction" >
             <thead>
                 <tr>
@@ -27,6 +34,7 @@
                 ?>
             </tbody>
         </table>
+
     </body>
     <script type="module" src="infraction_liste.js"></script>
 </html>
