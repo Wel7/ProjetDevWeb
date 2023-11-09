@@ -1,0 +1,123 @@
+body { 
+  font 				: 1em roboto;
+  color 			: #000000;
+  background-color  : #ebebeb;
+  text-align 		: left; 
+  margin 			: 0;
+}
+
+
+/* titre */
+.labeltitre {
+  color 			: #ffffff;
+  background-color  : #5b5b5b;
+  font-weight 		: bold; 
+  padding-top		: 0.4em;
+  width:100%;  
+}
+
+.divtitre {
+  display: flex;
+  flex-direction: row;
+  gap: 73%;
+  background-color  : #5b5b5b;
+  color 			: #ffffff; 
+  height			: 30px;
+  padding-top		: 5px;
+}
+
+
+table {
+  margin : auto;
+  width : 100%;
+}
+  
+table, td, th{
+  border-bottom : 1px solid silver;
+  border-collapse : collapse;
+}
+  
+td, th{
+  padding-left : 5px;
+  padding-right : 5px;
+}
+  
+th{
+  background-color: lightgray;
+}
+table tr {
+  background-color : #f9f9f9;
+} 
+table tr:nth-child(2n) {
+  background-color : white;
+} 
+
+.buttonDeroulant {
+  background-image: url("flecheGauche.png");
+  border: 0px;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.buttonDeroulant.rotated {
+  transform: rotate(-90deg);
+}
+
+.tab_delits th{
+  background-color: rgb(180, 177, 177);
+  color:white;
+  font:normal;
+}
+.tab_delits{
+  background-color: rgb(117, 110, 110);
+  color:white;
+}
+
+table .tab_delits:nth-child(2n){
+  background-color: rgb(65, 64, 64);
+}
+
+#deconnexion, #deconnexion :visited{
+  cursor: pointer;
+  color : white;
+  border : solid 1px red;
+  border-radius: 7px;
+  background-color: rgb(250, 59, 59);
+  width: 110px;
+  height:min-content;
+  text-align: center;
+  box-shadow:
+  1px 1px 1px black,
+  inset 2px 3px 5px rgba(0, 0, 0, 0.3),
+  inset -2px -3px 5px rgba(255, 255, 255, 0.5);
+  transition: transform 10s ease-in-out;
+}
+
+#deconnexion:hover{
+  transform: translate(10000px) rotate(-90deg);
+  box-shadow:
+    inset 2px 2px 1px black,
+    inset 2px 3px 5px rgba(0, 0, 0, 0.3),
+    inset -2px -3px 5px rgba(255, 255, 255, 0.5);
+}
+
+#deconnexion > a{
+  text-decoration: none;
+}
+
+.buttonModif {
+  background-image: url("modification.png");
+  background-size: 20px 20px;
+  border: 0px;
+  width: 20px;
+  height: 20px;
+}
+
+.buttonSuppr{
+  background-image: url("corbeille.png");
+  background-size: 20px 20px;
+  border: 0px;
+  width: 20px;
+  height: 20px;
+}
