@@ -8,6 +8,7 @@
     <body>
         
         <div id="div_infra_liste_titre" class="divtitre"> Liste des infractions
+            <?php printIdentite($conducteur);?>
             <div id="deconnexion">
                 <a href="../vue/login.view.php">Deconnexion</a>
             </div>
@@ -16,7 +17,8 @@
         <table id="table_infraction" >
             <thead>
                 <tr>
-                    <th>Identifiant d'infraction</th>
+                    <th>Numéro</th>
+                    
                     <th>Date</th>
                     <th></th>
                     <th>Immatriculation</th>
@@ -26,7 +28,7 @@
             </thead>
             <tbody>
                 <?php 
-                    printTabInfra();
+                    printTabInfra($numPermis)
                 ?>
             </tbody>
         </table>
