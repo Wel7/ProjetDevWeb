@@ -1,11 +1,12 @@
 <head>
-
+    <title>Page de connexion</title>
+    <link href="../vue/css/infraction.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
     <section>
-        <form action = "index.php" method="post">
+        <form style="margin: 3em;" class="login" method="post">
 
             <label>Numéro de permis</label>
 
@@ -15,7 +16,7 @@
 
             <input type="password" id="password" name="password" required>
 
-            <input type="submit" value="Connection">
+            <input style="margin: 1em;" type="submit" value="Connection">
 
         </form>
     </section>

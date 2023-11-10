@@ -148,6 +148,12 @@ table tr:nth-child(2n) {
   display: block
 }
 
+.login{
+  display: flex;
+  flex-direction:column; 
+  align-items: center;
+  justify-content: center;
+}
 
 
 

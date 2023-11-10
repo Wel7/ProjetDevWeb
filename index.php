@@ -1,6 +1,3 @@
 <?php
-    //include("controleur/login.controleur.php");
-    include("modele/delitsDAO.modele.php");
-    $a = new DelitsDAO();
-    var_dump();
+    header("location: controleur/login.controleur.php");
 ?>
