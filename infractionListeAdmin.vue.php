@@ -8,13 +8,10 @@
     <body>
         
         <div id="div_infra_liste_titre" class="divtitre"> Liste des infractions
-            <?php printIdentite($conducteur);?>
-            <div id="deconnexion" class="rotated">
+            <div id="deconnexion">
                 <a href="../vue/login.view.php">Deconnexion</a>
             </div>
         </div>
-
-        
 
         <table id="table_infraction" >
             <thead>
@@ -29,12 +26,12 @@
                 </tr>
             </thead>
             <tbody>
-            <?php 
-                    printTabInfra($numPermis)
+                <?php 
+                    printTabInfra()
                 ?>
             </tbody>
         </table>
 
     </body>
-    <script type="module" src="infraction_liste.js"></script>
+    <script type="module" src="infractionListeClient.js"></script>
 </html>
