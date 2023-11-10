@@ -1,5 +1,4 @@
 <?php
-
     ini_set("display_errors", 1);
     error_reporting(E_ALL);
 
@@ -7,7 +6,9 @@
     require_once "../modele/infractionDAO.modele.php";
     require_once "../modele/delitsDAO.modele.php";
 
-    $numPermis = "AZ67";
+    session_start();
+
+    $numPermis = $_SESSION["identifiant"];
     $cond = new ConducteurDAO;
     $conducteur = $cond->getByNumPermis($numPermis);
 
