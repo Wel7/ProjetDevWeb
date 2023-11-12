@@ -9,7 +9,7 @@
         
         <div id="div_infra_liste_titre" class="divtitre"> Liste des infractions
             <div id="deconnexion">
-                <a href="../vue/login.view.php">Deconnexion</a>
+                <a href="../controleur/login.controleur.php">Deconnexion</a>
             </div>
         </div>
 
@@ -21,6 +21,8 @@
                     <th></th>
                     <th>Immatriculation</th>
                     <th>Montant</th>
+                    <th></th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>

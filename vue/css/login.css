@@ -1,0 +1,22 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+input{
+    margin-bottom: 15px;
+}
+
+.connexion {
+    cursor: pointer;
+    color : rgb(0, 0, 0);
+    border : solid 1px rgb(59, 250, 59);
+    border-radius: 7px;
+    background-color: rgb(59, 250, 59);
+    width: 110px;
+    height:min-content;
+    text-align: center;
+}

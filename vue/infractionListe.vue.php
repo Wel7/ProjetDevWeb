@@ -10,7 +10,7 @@
         <div id="div_infra_liste_titre" class="divtitre"> Liste des infractions
             <?php printIdentite($conducteur);?>
             <div id="deconnexion" class="rotated">
-                <a href="../vue/login.view.php">Deconnexion</a>
+                <a href="../controleur/login.controleur.php">Deconnexion</a>
             </div>
         </div>
 

@@ -5,44 +5,46 @@ include_once("../modele/infractionDAO.modele.php");
 include_once("../modele/conducteurDAO.modele.php");
 include_once("../modele/vehiculeDAO.modele.php");
 include_once("../modele/delitsDAO.modele.php");
-
+session_start();
 //Récupères l'ID de l'infraction
-$idInfra = $_GET["id"];
-
 $valide = isset($_POST["date"]);
 
 //Récupère les différentes informations nécessaires pour la page
 $infDao = new infractionDAO();
-$infraction = $infDao->byIdInf($idInfra);
-
 $conDAO = new ConducteurDAO();
-$datePermis = "";
-if (isset($_POST["permis"])) {
-    $datePermis = strtotime($conDAO->getByNumPermis($_POST["permis"])->getDatePermis());
-}
-
 $vehDao = new VehiculeDAO();
-session_start();
+
 
 $delDAO = new DelitsDAO();
 $listeDelit = $delDAO->getAll();
-$listeDelitInfra = $delDAO->getByIdInfra($idInfra);
 
 //Génére les informations qui seront affichés sur la page
-$dateInf = $_POST["date"] ?? date("Y-m-d", strtotime($infraction->getDateInf()));
-$immatInf = $_POST["immat"] ?? $infraction->getNumImmat();
-$permisInf = $_POST["permis"] ?? $infraction->getNumPermis();
-$delitCocher = $_POST["delit"] ?? array_map(function($delit) {return $delit->getIdDelit();}, $delDAO->getByIdInfra($idInfra));
+$idInf = $_POST["id"] ?? 1;
+$dateInf = $_POST["date"] ?? date("Y-m-d");
+$immatInf = $_POST["immat"] ?? "";
+$permisInf = $_POST["permis"] ?? "";
+$delitCocher = $_POST["delit"] ?? [];
 
-include("../vue/modifInfraction.view.php");
+include("../vue/ajoutInfraction.view.php");
 
 
 
 //Génère les différents messages d'erreurs
+if (isset($_POST["id"])) {
+    if ($infDao->idExiste($_POST["id"])) {
+        echo "<p id = 'erreur'>L'ID est déjà pris</p>";
+        $valide = false;
+    }
+}
+
 if (isset($_POST["date"])) {
     if (strtotime($_POST["date"]) > time()) {
         echo "<p id = 'erreur'>La date doit être antérieure ou égale à aujourd'hui.</p>";
         $valide = false;
+    }
+    $datePermis = "";
+    if (isset($_POST["permis"])) {
+        $datePermis = strtotime($conDAO->getByNumPermis($_POST["permis"])->getDatePermis());
     }
     if ($datePermis == 0 && $permisInf != "") {
         echo "<p id = 'erreur'>Le numéro du permis n'est pas valide.</p>";
@@ -70,18 +72,16 @@ if (!isset($_POST["delit"]) && isset($_POST["date"])) {
     $valide = false;
 }
 
-if($valide){
-    $infraction->setDateInf($_POST["date"]);
-    $infraction->setNumImmat($_POST["immat"]);
-    $infraction->setNumPermis($_POST["permis"]);
-    $infDao->update($infraction);
-    $delDAO->delete($idInfra);
+if ($valide) {
+    $infraction = new Infraction($_POST["id"], $_POST["date"], $_POST["immat"], $_POST["permis"]);
+    $infDao->insert($infraction);
+
     foreach ($_POST["delit"] as $delitID) {
-        $delDAO->insert($infraction,  $delDAO->getById($delitID));
+        $delDAO->insert($infraction, $delDAO->getById($delitID));
     }
 
-    
-    
+
+
     header('Location: infractionListeAdmin.php');
 }
 
