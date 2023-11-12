@@ -14,10 +14,13 @@
         $infractions = $inf->getAll();
         for($i=0;$i<count($infractions);$i++)
         {        
+            $d = new DateTime($infractions[$i]->getDateInf());
+            $date = $d->format("d/m/Y");
+
             echo "<table>
                     <tr class='infraction'>
                         <th>".$infractions[$i]->getIdInf()."</th>
-                        <th>".$infractions[$i]->getDateInf()."</th>
+                        <th>".$date."</th>
                         <th></th>
                         <th>".$infractions[$i]->getNumImmat()."</th>
                         <th>".$del->getTotalTarif($infractions[$i]->getIdInf())."€ </th>
