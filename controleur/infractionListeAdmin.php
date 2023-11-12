@@ -26,7 +26,7 @@
                         <th>".$del->getTotalTarif($infractions[$i]->getIdInf())."€ </th>
                         <th class='btn'><input type='button' class='buttonDeroulant'/></th>
                         <th class='btn'><a href='./modification.controleur.php?id=".$infractions[$i]->getIdInf()."'><input type='button' class='buttonModif'/></a></th>
-                        <th class='btn'><form method='GET' action='./suppression.controleur.php?id=".$infractions[$i]->getIdInf()."' onclick='return confirmSuppr(".$infractions[$i]->getIdInf().")'>
+                        <th class='btn'><form method='POST' action='./suppression.controleur.php?id=".$infractions[$i]->getIdInf()."' onclick='return confirmSuppr(".$infractions[$i]->getIdInf().")'>
                             <input type='submit'class='buttonSuppr'/>
                         </form></th>
                     </tr>";
