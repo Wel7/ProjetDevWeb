@@ -9,32 +9,29 @@
         
         <div id="div_infra_liste_titre" class="divtitre"> Liste des infractions
             <?php printIdentite($conducteur);?>
-            <div id="deconnexion" class="rotated">
+            <div id="deconnexion">
                 <a href="../controleur/login.controleur.php">Deconnexion</a>
             </div>
         </div>
 
-        
-
         <table id="table_infraction" >
             <thead>
                 <tr>
-                    <th></th>
                     <th>Numéro</th>
-                    <th></th>
+                    
                     <th>Date</th>
+                    <th></th>
                     <th>Immatriculation</th>
                     <th>Montant</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-            <?php 
+                <?php 
                     printTabInfra($numPermis)
                 ?>
             </tbody>
         </table>
 
     </body>
-    <script type="module" src="infraction_liste.js"></script>
 </html>

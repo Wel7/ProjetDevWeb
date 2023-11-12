@@ -1,0 +1,45 @@
+h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+input[type="number"],
+input[type="date"],
+input[type="text"] {
+    display: block;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 3px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+input[type="button"] {
+    background-color: #f44336;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 3px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-right: 1em;
+}
