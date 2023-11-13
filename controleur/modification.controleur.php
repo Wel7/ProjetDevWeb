@@ -7,8 +7,12 @@ include_once("../modele/vehiculeDAO.modele.php");
 include_once("../modele/delitsDAO.modele.php");
 
 session_start();
-if (!isset($_SESSION["identifiant"])) {
+if ((!isset($_SESSION["identifiant"]) && isset($_SESSION["admin"]))) {
     header("Location: login.controleur.php");
+}
+
+if(!isset($_GET["id"])){
+    header("Location: infractionListeAdmin.php");
 }
 
 //Récupères l'ID de l'infraction

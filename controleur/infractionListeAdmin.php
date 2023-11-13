@@ -8,7 +8,7 @@
     require_once "../modele/delitsDAO.modele.php";
 
     session_start();
-    if(!isset($_SESSION["identifiant"])){
+    if ((!isset($_SESSION["identifiant"]) && isset($_SESSION["admin"]))) {
         header("Location: login.controleur.php");
     }
     

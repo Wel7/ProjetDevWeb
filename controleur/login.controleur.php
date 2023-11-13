@@ -11,6 +11,7 @@ if (isset($_POST["identifiant"]) && isset($_POST["password"])) {
         unset($_POST["password"]);
         unset($verif);
         $_SESSION["identifiant"] = $_POST["identifiant"];
+        $_SESSION["admin"] = true; 
         header("Location: infractionListeAdmin.php");
     } else {
         $verif = new ConducteurDAO();
