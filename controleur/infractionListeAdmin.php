@@ -29,6 +29,7 @@
                         <th class='btn'><form method='POST' action='./suppression.controleur.php?id=".$infractions[$i]->getIdInf()."' onclick='return confirmSuppr(".$infractions[$i]->getIdInf().")'>
                             <input type='submit'class='buttonSuppr'/>
                         </form></th>
+
                     </tr>";
             $delits= $del->getByIdInfra($infractions[$i]->getIdInf());
                 echo "<tbody class='delit hidden'>";
@@ -43,6 +44,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
+
                 </tr>";
                 }
             echo "</tbody></table>";

@@ -32,7 +32,6 @@
 
             echo "<table>
                     <tr class='infraction'>
-
                         <th>".($i+1)."</th>
                         
                         <th>".$date."</th>

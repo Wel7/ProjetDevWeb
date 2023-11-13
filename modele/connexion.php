@@ -7,7 +7,7 @@ class Connexion {
 		$db_config['SGBD']		= 'mysql';
 		$db_config['HOST']		= 'localhost';
 		$db_config['DB_NAME']	= 'infraction';
-		$db_config['USER']		= 'root';
+		$db_config['USER']		= 'hugo';
 		$db_config['PASSWORD']	= '';
 		try
 		{

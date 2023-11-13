@@ -1,3 +1,3 @@
 <?php
-    header("Location: controleur/infractionListeAdmin.php");
+    header("Location: controleur/login.controleur.php");
 ?>

@@ -60,6 +60,7 @@ class InfractionDAO
     }
 
     // Supprime une infraction
+
     function delete(string $id_inf): void
     {
         $this->bd->execSQL("DELETE FROM infraction 
