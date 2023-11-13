@@ -7,7 +7,10 @@
     require_once "../modele/delitsDAO.modele.php";
 
     session_start();
-
+    if(!isset($_SESSION["identifiant"])){
+        header("Location: login.controleur.php");
+    }
+    
     $numPermis = $_SESSION["identifiant"];
     $cond = new ConducteurDAO;
     $conducteur = $cond->getByNumPermis($numPermis);

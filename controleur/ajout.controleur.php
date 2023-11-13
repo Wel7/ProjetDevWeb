@@ -6,6 +6,10 @@ include_once("../modele/conducteurDAO.modele.php");
 include_once("../modele/vehiculeDAO.modele.php");
 include_once("../modele/delitsDAO.modele.php");
 session_start();
+if(!isset($_SESSION["identifiant"])){
+    header("Location: login.controleur.php");
+}
+
 //Récupères l'ID de l'infraction
 $valide = isset($_POST["date"]);
 

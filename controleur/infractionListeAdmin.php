@@ -7,6 +7,11 @@
     require_once "../modele/infractionDAO.modele.php";
     require_once "../modele/delitsDAO.modele.php";
 
+    session_start();
+    if(!isset($_SESSION["identifiant"])){
+        header("Location: login.controleur.php");
+    }
+    
     function printTabInfra(){
         $inf = new InfractionDAO;
         $del = new DelitsDAO;
