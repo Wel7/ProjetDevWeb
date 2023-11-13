@@ -22,6 +22,8 @@
                     <th>Immatriculation</th>
                     <th>Montant</th>
                     <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>

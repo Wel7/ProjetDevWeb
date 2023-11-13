@@ -5,9 +5,9 @@
     $delit = new DelitsDAO();
     $infra = new InfractionDAO();
 
+    var_dump($_GET['id']);
     if(isset($_GET['id']) && $infra->idExiste($_GET['id']))
     {
-        var_dump($_GET['id']);
         $delit->delete($_GET['id']);
         $infra->delete($_GET['id']);
     }

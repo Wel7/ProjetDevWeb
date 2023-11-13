@@ -60,10 +60,11 @@ class InfractionDAO
     }
 
     // Supprime une infraction
-    function delete(string $id_infr): void
+
+    function delete(string $id_inf): void
     {
         $this->bd->execSQL("DELETE FROM infraction 
-                WHERE id_infr = :id_infr", [':id_infr' => $id_infr]);
+                WHERE id_inf = :id_inf", [':id_inf' => $id_inf]);
     }
 
     // Insere dans la Bdd un tableau de délit pour une infraction
