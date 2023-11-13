@@ -8,8 +8,12 @@
     require_once "../modele/delitsDAO.modele.php";
 
     session_start();
-    if ((!isset($_SESSION["identifiant"]) && isset($_SESSION["admin"]))) {
+    if(!isset($_SESSION["identifiant"])){
         header("Location: login.controleur.php");
+    }
+
+    if(!isset($_SESSION["admin"])){
+        header("Location: infractionListe.php");
     }
     
     function printTabInfra(){
