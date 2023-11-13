@@ -13,25 +13,22 @@
             </div>
         </div>
 
-        <table id="table_infraction" >
-            <thead>
-                <tr>
-                    <th>Identifiant d'infraction</th>
-                    <th>Date</th>
-                    <th></th>
-                    <th>Immatriculation</th>
-                    <th>Montant</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php 
-                    printTabInfra();
-                ?>
-            </tbody>
+        <table>
+            <tr>
+                <th>Identifiant d'infraction</th>
+                <th>Date</th>
+                <th></th>
+                <th>Immatriculation</th>
+                <th>Montant</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
         </table>
-
+        <div id="table_infraction">
+            <?php 
+                printTabInfra();
+            ?>
+        </div>
     </body>
 </html>

@@ -7,6 +7,11 @@
     require_once "../modele/infractionDAO.modele.php";
     require_once "../modele/delitsDAO.modele.php";
 
+    session_start();
+    if(!isset($_SESSION["identifiant"])){
+        header("Location: login.controleur.php");
+    }
+
     $numPermis = "AZ67";
     $cond = new ConducteurDAO;
     $inf = new InfractionDAO;
@@ -31,15 +36,17 @@
             $date = $d->format("d/m/Y"); 
 
             echo "<table>
-                    <tr class='infraction'>
-                        <th>".($i+1)."</th>
-                        
-                        <th>".$date."</th>
-                        <th></th>
-                        <th>".$infractions[$i]->getNumImmat()."</th>
-                        <th>".$del->getTotalTarif($infractions[$i]->getIdInf())."€ </th>
-                        <th><input type='button' class='buttonDeroulant'/></th>
-                    </tr>
+                    <thead class='infraction'>
+                        <tr>
+                            <th>".($i+1)."</th>
+                            
+                            <th>".$date."</th>
+                            <th></th>
+                            <th>".$infractions[$i]->getNumImmat()."</th>
+                            <th>".$del->getTotalTarif($infractions[$i]->getIdInf())."€ </th>
+                            <th><input type='button' class='buttonDeroulant'/></th>
+                        </tr>
+                    </thead>
             ";
             $delits= $del->getByIdInfra($infractions[$i]->getIdInf());
                 echo "<tbody class='delit hidden'>";

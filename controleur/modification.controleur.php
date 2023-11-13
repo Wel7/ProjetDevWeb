@@ -6,6 +6,19 @@ include_once("../modele/conducteurDAO.modele.php");
 include_once("../modele/vehiculeDAO.modele.php");
 include_once("../modele/delitsDAO.modele.php");
 
+session_start();
+if(!isset($_SESSION["identifiant"])){
+    header("Location: login.controleur.php");
+}
+
+if(!isset($_SESSION["admin"])){
+    header("Location: infractionListe.php");
+}
+
+if(!isset($_GET["id"])){
+    header("Location: infractionListeAdmin.php");
+}
+
 //Récupères l'ID de l'infraction
 $idInfra = $_GET["id"];
 
@@ -32,7 +45,8 @@ $listeDelitInfra = $delDAO->getByIdInfra($idInfra);
 $dateInf = $_POST["date"] ?? date("Y-m-d", strtotime($infraction->getDateInf()));
 $immatInf = $_POST["immat"] ?? $infraction->getNumImmat();
 $permisInf = $_POST["permis"] ?? $infraction->getNumPermis();
-$delitCocher = $_POST["delit"] ?? array_map(function($delit) {return $delit->getIdDelit();}, $delDAO->getByIdInfra($idInfra));
+$delitCocher = $_POST["delit"] ?? array_map(function ($delit) {
+    return $delit->getIdDelit(); }, $delDAO->getByIdInfra($idInfra));
 
 include("../vue/modifInfraction.view.php");
 
@@ -70,18 +84,18 @@ if (!isset($_POST["delit"]) && isset($_POST["date"])) {
     $valide = false;
 }
 
-if($valide){
+if ($valide) {
     $infraction->setDateInf($_POST["date"]);
     $infraction->setNumImmat($_POST["immat"]);
     $infraction->setNumPermis($_POST["permis"]);
     $infDao->update($infraction);
     $delDAO->delete($idInfra);
     foreach ($_POST["delit"] as $delitID) {
-        $delDAO->insert($infraction,  $delDAO->getById($delitID));
+        $delDAO->insert($infraction, $delDAO->getById($delitID));
     }
 
-    
-    
+
+
     header('Location: infractionListeAdmin.php');
 }
 

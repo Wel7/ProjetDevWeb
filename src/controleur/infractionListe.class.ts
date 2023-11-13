@@ -15,7 +15,8 @@ class VueInfraListe {
         // On initialise les lignes de délit en non visible
         for(let i=0;i<this.form.btnDeroulant.length;i++){
             this.form.btnDeroulant[i].addEventListener("click", function() {
-                this.closest("table").tBodies[1].classList.toggle('hidden');
+                console.log("bijour");
+                this.closest("table").querySelector(".delit").classList.toggle("hidden");
                 this.classList.toggle('rotated');
             })
         }
