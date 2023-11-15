@@ -11,7 +11,7 @@ if(!isset($_SESSION["identifiant"])){
 }
 
 if(!isset($_SESSION["admin"])){
-    header("Location: infractionListeClient.php");
+    header("Location: infractionListe.php");
 }
 //Récupères l'ID de l'infraction
 $valide = isset($_POST["date"]);

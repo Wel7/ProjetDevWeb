@@ -8,9 +8,8 @@ if(!isset($_SESSION["identifiant"])){
 }
 
 if(!isset($_SESSION["admin"])){
-    header("Location: infractionListeClient.php");
+    header("Location: infractionListe.php");
 }
-
 if(!isset($_GET["id"])){
     header("Location: infractionListeAdmin.php");
 }

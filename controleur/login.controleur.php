@@ -24,7 +24,7 @@ if (isset($_POST["identifiant"]) && isset($_POST["password"])) {
             unset($_POST["password"]);
             unset($verif);
             $_SESSION["identifiant"] = $_POST["identifiant"];
-            header("Location: infractionListeClient.php");
+            header("Location: infractionListe.php");
         } else {
             echo "Mot de passe ou identifiant invalide";
         }
