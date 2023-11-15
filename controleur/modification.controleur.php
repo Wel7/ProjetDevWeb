@@ -12,7 +12,7 @@ if(!isset($_SESSION["identifiant"])){
 }
 
 if(!isset($_SESSION["admin"])){
-    header("Location: infractionListe.php");
+    header("Location: infractionListeClient.php");
 }
 
 if(!isset($_GET["id"])){
