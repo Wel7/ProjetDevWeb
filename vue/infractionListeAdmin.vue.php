@@ -8,6 +8,9 @@
     <body>
         
         <div id="div_infra_liste_titre" class="divtitre"> Liste des infractions
+            <div id="ajout">
+                <a href="../controleur/ajout.controleur.php">Ajout</a>
+            </div>
             <div id="deconnexion">
                 <a href="../controleur/login.controleur.php">Deconnexion</a>
             </div>
