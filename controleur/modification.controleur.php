@@ -35,7 +35,6 @@ if (isset($_POST["permis"])) {
 }
 
 $vehDao = new VehiculeDAO();
-session_start();
 
 $delDAO = new DelitsDAO();
 $listeDelit = $delDAO->getAll();
