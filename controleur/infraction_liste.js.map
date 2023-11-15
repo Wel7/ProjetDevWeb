@@ -1,1 +1,0 @@
-{"version":3,"file":"infraction_liste.js","sourceRoot":"","sources":["../src/controleur/infraction_liste.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,kCAAkC,CAAA;AAChE,aAAa,CAAC,IAAI,CAAC;IACf,YAAY,EAAE,KAAK,CAAC,IAAI,CAAC,QAAQ,CAAC,gBAAgB,CAAC,kBAAkB,CAAC,CAAuB;IAC7F,QAAQ,EAAE,KAAK,CAAC,IAAI,CAAC,QAAQ,CAAC,sBAAsB,CAAC,YAAY,CAAC,CAAqB;CAC1F,CAAC,CAAA"}
