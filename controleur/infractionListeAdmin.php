@@ -13,7 +13,7 @@
     }
 
     if(!isset($_SESSION["admin"])){
-        header("Location: infractionListeClient.php");
+        header("Location: infractionListe.php");
     }
 
     function printTabInfra(){

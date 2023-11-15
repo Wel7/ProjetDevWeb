@@ -12,7 +12,7 @@ if(!isset($_SESSION["identifiant"])){
 }
 
 if(!isset($_SESSION["admin"])){
-    header("Location: infractionListeClient.php");
+    header("Location: infractionListe.php");
 }
 
 if(!isset($_GET["id"])){
@@ -35,7 +35,6 @@ if (isset($_POST["permis"])) {
 }
 
 $vehDao = new VehiculeDAO();
-session_start();
 
 $delDAO = new DelitsDAO();
 $listeDelit = $delDAO->getAll();

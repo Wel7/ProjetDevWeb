@@ -9,8 +9,10 @@
         
         <div id="div_infra_liste_titre" class="divtitre"> Liste des infractions
             <?php printIdentite($conducteur);?>
-            <div id="deconnexion">
-                <a href="../controleur/login.controleur.php">Deconnexion</a>
+            <div id="btnTitre">
+                <div id="deconnexion">
+                    <a href="../controleur/login.controleur.php">Deconnexion</a>
+                </div>
             </div>
         </div>
 
