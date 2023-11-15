@@ -12,7 +12,7 @@
         header("Location: login.controleur.php");
     }
 
-    $numPermis = "AZ67";
+    $numPermis = $_SESSION["identifiant"];
     $cond = new ConducteurDAO;
     $inf = new InfractionDAO;
 

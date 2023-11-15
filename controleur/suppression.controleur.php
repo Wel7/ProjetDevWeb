@@ -1,4 +1,7 @@
 <?php
+ini_set("display_errors", 1);
+error_reporting(E_ALL);
+
 require_once "../modele/infractionDAO.modele.php";
 require_once "../modele/delitsDAO.modele.php";
 
@@ -17,7 +20,6 @@ if(!isset($_GET["id"])){
 $delit = new DelitsDAO();
 $infra = new InfractionDAO();
 
-var_dump($_GET['id']);
 if ($infra->idExiste($_GET['id'])) {
     $delit->delete($_GET['id']);
     $infra->delete($_GET['id']);
@@ -25,5 +27,5 @@ if ($infra->idExiste($_GET['id'])) {
     throw new ErrorException("ID d'infraction inexistant ou inaccessible");
 }
 
-header("Location: ./infractionListeAdmin.php")
-    ?>
+header("Location: ./infractionListeAdmin.php");
+?>
