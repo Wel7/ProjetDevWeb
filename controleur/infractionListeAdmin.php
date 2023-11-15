@@ -15,31 +15,33 @@
     if(!isset($_SESSION["admin"])){
         header("Location: infractionListe.php");
     }
-    
+
     function printTabInfra(){
         $inf = new InfractionDAO;
         $del = new DelitsDAO;
 
         $infractions = $inf->getAll();
+
         for($i=0;$i<count($infractions);$i++)
         {        
             $d = new DateTime($infractions[$i]->getDateInf());
             $date = $d->format("d/m/Y");
 
             echo "<table>
-                    <tr class='infraction'>
-                        <th>".$infractions[$i]->getIdInf()."</th>
-                        <th>".$date."</th>
-                        <th></th>
-                        <th>".$infractions[$i]->getNumImmat()."</th>
-                        <th>".$del->getTotalTarif($infractions[$i]->getIdInf())."€ </th>
-                        <th class='btn'><input type='button' class='buttonDeroulant'/></th>
-                        <th class='btn'><a href='./modification.controleur.php?id=".$infractions[$i]->getIdInf()."'><input type='button' class='buttonModif'/></a></th>
-                        <th class='btn'><form method='POST' action='./suppression.controleur.php?id=".$infractions[$i]->getIdInf()."' onclick='return confirmSuppr(".$infractions[$i]->getIdInf().")'>
-                            <input type='submit'class='buttonSuppr'/>
-                        </form></th>
-
-                    </tr>";
+                    <thead class='infraction'>
+                        <tr>
+                            <th>".$infractions[$i]->getIdInf()."</th>
+                            <th>".$date."</th>
+                            <th></th>
+                            <th>".$infractions[$i]->getNumImmat()."</th>
+                            <th>".$del->getTotalTarif($infractions[$i]->getIdInf())."€ </th>
+                            <th class='btn'><input type='button' class='buttonDeroulant'/></th>
+                            <th class='btn'><a href='./modification.controleur.php?id=".$infractions[$i]->getIdInf()."'><input type='button' class='buttonModif'/></a></th>
+                            <th class='btn'><form method='POST' action='./suppression.controleur.php?id=".$infractions[$i]->getIdInf()."' onclick='return confirmSuppr(".$infractions[$i]->getIdInf().")'>
+                                <input type='submit'class='buttonSuppr'/>
+                            </form></th>
+                        </tr>
+                    </thead>";
             $delits= $del->getByIdInfra($infractions[$i]->getIdInf());
                 echo "<tbody class='delit hidden'>";
                 for($j=0;$j<count($delits);$j++){

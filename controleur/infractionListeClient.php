@@ -36,15 +36,17 @@
             $date = $d->format("d/m/Y"); 
 
             echo "<table>
-                    <tr class='infraction'>
-                        <th>".($i+1)."</th>
-                        
-                        <th>".$date."</th>
-                        <th></th>
-                        <th>".$infractions[$i]->getNumImmat()."</th>
-                        <th>".$del->getTotalTarif($infractions[$i]->getIdInf())."€ </th>
-                        <th><input type='button' class='buttonDeroulant'/></th>
-                    </tr>
+                    <thead class='infraction'>
+                        <tr>
+                            <th>".($i+1)."</th>
+                            
+                            <th>".$date."</th>
+                            <th></th>
+                            <th>".$infractions[$i]->getNumImmat()."</th>
+                            <th>".$del->getTotalTarif($infractions[$i]->getIdInf())."€ </th>
+                            <th><input type='button' class='buttonDeroulant'/></th>
+                        </tr>
+                    </thead>
             ";
             $delits= $del->getByIdInfra($infractions[$i]->getIdInf());
                 echo "<tbody class='delit hidden'>";
