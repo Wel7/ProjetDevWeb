@@ -14,24 +14,23 @@
             </div>
         </div>
 
-        <table id="table_infraction" >
-            <thead>
-                <tr>
-                    <th>Numéro</th>
+        
+        <table>
+            <tr>
+                <th>Numéro</th>
                     
-                    <th>Date</th>
-                    <th></th>
-                    <th>Immatriculation</th>
-                    <th>Montant</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
+                <th>Date</th>
+                <th></th>
+                <th>Immatriculation</th>
+                <th>Montant</th>
+                <th></th>
+            </tr>
+        </table>
+        <div id="table_infraction" >
                 <?php 
                     printTabInfra($numPermis)
                 ?>
-            </tbody>
-        </table>
+        </div>
 
     </body>
 </html>
