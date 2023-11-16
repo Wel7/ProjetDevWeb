@@ -73,10 +73,14 @@ class AdminDAO
      * Vérifie si un objet Admin existe dans la base de données par son identifiant_admin et mdp_admin.
      */
     function verifAdmin(string $identifiant_admin, string $mdp_admin): bool
-    {
-        $req = $this->select . " WHERE identifiant_admin = :identifiant_admin AND mdp_admin = :mdp_admin";
-        $res = ($this->loadQuery($this->bd->execSQLselect($req, [':identifiant_admin' => $identifiant_admin, ':mdp_admin' => $mdp_admin])));
-        return ($res != []);
+    {   
+        $i = 0;
+        $req = $this->select . " WHERE identifiant_admin = :identifiant_admin";
+        $res = ($this->loadQuery($this->bd->execSQLselect($req, [':identifiant_admin' => $identifiant_admin]))); 
+        if(count($res) != 0)     
+            return (password_verify($mdp_admin,$res[0]->getMdpAdmin()));
+        return false;
+
     }
 }
 
