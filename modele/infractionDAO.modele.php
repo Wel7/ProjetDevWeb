@@ -38,6 +38,16 @@ class InfractionDAO
 
     }
 
+    function idDispo():int
+    {
+        return ($this->bd->execSQLselect("SELECT a.id_inf + 1 AS id
+        FROM infraction AS a
+        LEFT JOIN infraction AS b ON a.id_inf + 1 = b.id_inf
+        WHERE b.id_inf IS NULL
+        ORDER BY a.id_inf
+        LIMIT 1;"))[0]["id"];
+    }
+
     // Retourne tous les infractions
     function getAll(): array
     {
@@ -51,7 +61,7 @@ class InfractionDAO
         return ($this->loadQuery($this->bd->execSQLselect($this->select . " Where id_inf=" . $id_inf)))[0];
     }
 
-    
+
 
     // Retourne les infractions d'apres un id
     function byIdPermis(string $id_permis): array
@@ -70,10 +80,17 @@ class InfractionDAO
     // Insere dans la Bdd un tableau de délit pour une infraction
 
     function insert(Infraction $infra): void
-    {   
+    {
         $this->bd->execSQL("INSERT INTO infraction(id_inf, date_inf, num_immat, num_permis ) VALUES
             (" . $infra->getIdInf() . ",'" . $infra->getDateInf() . "','" . $infra->getNumImmat() .
-            "','" . $infra->getNumPermis() . "')");            
+            "','" . $infra->getNumPermis() . "')");
+    }
+
+    function insertNoId(Infraction $infra): void
+    {
+        $this->bd->execSQL("INSERT INTO infraction(date_inf, num_immat, num_permis ) VALUES
+            (" . $infra->getDateInf() . "','" . $infra->getNumImmat() .
+            "','" . $infra->getNumPermis() . "')");
     }
 
 

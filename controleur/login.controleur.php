@@ -13,6 +13,7 @@ $_SESSION = [];
 
 if (isset($_POST["identifiant"]) && isset($_POST["password"])) {
     $verif = new AdminDAO();
+    var_dump($verif->verifAdmin($_POST["identifiant"], $_POST["password"]));
     if ($verif->verifAdmin($_POST["identifiant"], $_POST["password"])) {
         unset($_POST["password"]);
         unset($verif);

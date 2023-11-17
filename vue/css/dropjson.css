@@ -1,0 +1,82 @@
+.box {
+    background-color: white;
+    outline: 2px dashed black;
+    height: 40vh;
+    width: 50vw;
+}
+.box.is-dragover {
+    background-color: grey;
+}
+
+.box {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box label strong {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
+.box label strong:hover {
+    color: blueviolet
+}
+
+.box input {
+    display: none;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    margin-top: 5vh;
+    background-color: #4CAF50;
+    color: white;
+    border-color:black;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+button:hover{
+    margin-top: 5vh;
+    background-color: #607e61;
+    color: white;
+    border-color:black;
+    font-size: 2em;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+}
+
+p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#erreur {
+    color: red;
+}
+
+#reussi {
+    color:green;
+}
+
+body { 
+    font: 1em roboto;
+    color: #000000;
+    background-color: #ebebeb;
+    margin: 0;
+  }

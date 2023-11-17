@@ -1,5 +1,5 @@
 <head>
-    <title>Modifier une infraction</title>
+    <title>Page de connexion</title>
     <link rel="stylesheet" href="../vue/css/login.css">
 </head>
 

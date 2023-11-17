@@ -101,5 +101,11 @@ class DelitsDAO
         $this->bd->execSQL("DELETE FROM comprend 
             WHERE id_inf = :id_inf AND id_delit = :id_delit", [':id_inf' => $id_inf, ':id_delit' => $id_delit]);
     }
+
+    function existe(int $id_delit)
+    {
+        return ($this->bd->execSQLselect("SELECT true FROM delit 
+            WHERE id_delit = :id_delit", [':id_delit' => $id_delit]));
+    }
 }
 ?>

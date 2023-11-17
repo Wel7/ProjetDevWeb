@@ -27,7 +27,7 @@ $delDAO = new DelitsDAO();
 $listeDelit = $delDAO->getAll();
 
 //Génére les informations qui seront affichés sur la page
-$idInf = $_POST["id"] ?? 1;
+$idInf = $_POST["id"] ?? $infDao->idDispo();
 $dateInf = $_POST["date"] ?? date("Y-m-d");
 $immatInf = $_POST["immat"] ?? "";
 $permisInf = $_POST["permis"] ?? "";

@@ -106,7 +106,6 @@ class ConducteurDAO
      */
     function verifCon(string $num_permis, string $motDePasse): bool
     {
-        $i = 0;
         $req = $this->select . " WHERE num_permis = :num_permis";
         $res = ($this->loadQuery($this->bd->execSQLselect($req, [':num_permis' => $num_permis])));
         return (password_verify($motDePasse,$res[0]->getMotDePasse()));

@@ -9,6 +9,9 @@
         
         <div id="div_infra_liste_titre" class="divtitre"> Liste des infractions
             <div id="btnTitre">
+            <div id="ajout">
+                    <a href="../controleur/dropjson.php">Depot JSON</a>
+                </div>
                 <div id="ajout">
                     <a href="../controleur/ajout.controleur.php">Ajout</a>
                 </div>
